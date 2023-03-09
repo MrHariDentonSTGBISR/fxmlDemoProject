@@ -49,6 +49,7 @@
       <Button fx:id="btnNegative" mnemonicParsing="false" onAction="#operatorEventHandler" text="-/+" userData="-/+" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
       <Button fx:id="btnC" mnemonicParsing="false" onAction="#operatorEventHandler" text="C" userData="C" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
       <Button fx:id="btnCE" mnemonicParsing="false" onAction="#operatorEventHandler" text="CE" userData="CE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Button fx:id="btnDBTest" mnemonicParsing="false" onAction="#connectToDB" text="DBTest" GridPane.columnIndex="4" GridPane.rowIndex="3" />
    </children>
    <opaqueInsets>
       <Insets />

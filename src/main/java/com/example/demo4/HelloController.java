@@ -1,11 +1,21 @@
 package com.example.demo4;
 
-import javafx.event.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+import java.sql.*;
+
 
 public class HelloController {
+
+    static final String DB_URL = "jdbc:mysql://localhost:3306/sakila";
+    static String driverName = "com.mysql.cj.jdbc.Driver";
+    static final String USER = "admin";
+    static final String PASS = "admin";
+    static final String QUERY = "SELECT * FROM actor";
+
     @FXML
     private Label calculatorDisplay;
     private double operand1 = 0;
@@ -86,6 +96,34 @@ public class HelloController {
             operator = data;
             clear = true;
 
+        }
+
+    }
+    @FXML
+    protected void connectToDB(ActionEvent event){
+
+        // Open a connection
+        try{Connection conn = null;
+            Class.forName(driverName).newInstance();
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(QUERY);
+
+            while(rs.next()){
+                //Display values
+                System.out.print("ID: " + rs.getInt("actor_id"));
+                System.out.print(", FirstName: " + rs.getString("first_name"));
+                System.out.print(", LasstName: " + rs.getString("last_name"));
+                System.out.println(", LastUpdate: " + rs.getString("last_update"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
         }
 
     }
