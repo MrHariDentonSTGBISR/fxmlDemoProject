@@ -2,13 +2,10 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
 <GridPane alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo4.HelloController">
   <columnConstraints>
-    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
-    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
@@ -21,35 +18,11 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="btn1" mnemonicParsing="false" onAction="#buttonEventHandler" text="1" userData="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btn2" mnemonicParsing="false" onAction="#buttonEventHandler" text="2" userData="2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btn3" mnemonicParsing="false" onAction="#buttonEventHandler" text="3" userData="3" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btn4" mnemonicParsing="false" onAction="#buttonEventHandler" text="4" userData="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
-       <Button fx:id="btn5" mnemonicParsing="false" onAction="#buttonEventHandler" text="5" userData="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-       <Button fx:id="btn6" mnemonicParsing="false" onAction="#buttonEventHandler" text="6" userData="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-       <Button fx:id="btn7" mnemonicParsing="false" onAction="#buttonEventHandler" text="7" userData="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-       <Button fx:id="btn8" mnemonicParsing="false" onAction="#buttonEventHandler" text="8" userData="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-       <Button fx:id="btn9" mnemonicParsing="false" onAction="#buttonEventHandler" text="9" userData="9" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-       <Button fx:id="btn0" mnemonicParsing="false" onAction="#buttonEventHandler" text="0" userData="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-
-       <Label fx:id="calculatorDisplay" alignment="CENTER_RIGHT" minHeight="30.0" minWidth="200.0" style="-fx-background-color: BLACK;" text="0" textFill="#11ee06" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-         <effect>
-            <Glow />
-         </effect>
-         <padding>
-            <Insets top="20.0" />
-         </padding>
-      </Label>
-      <Button fx:id="btnPoint" mnemonicParsing="false" onAction="#operatorEventHandler" text="." userData="." GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btnEquals" mnemonicParsing="false" onAction="#operatorEventHandler" text="=" userData="=" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btnPlus" mnemonicParsing="false" onAction="#operatorEventHandler" text="+" userData="+" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES" />
-      <Button fx:id="btnMinus" mnemonicParsing="false" onAction="#operatorEventHandler" text="-" userData="-" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btnMultiply" mnemonicParsing="false" onAction="#operatorEventHandler" text="*" userData="*" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btnDivide" mnemonicParsing="false" onAction="#operatorEventHandler" text="/" userData="/" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btnNegative" mnemonicParsing="false" onAction="#operatorEventHandler" text="-/+" userData="-/+" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btnC" mnemonicParsing="false" onAction="#operatorEventHandler" text="C" userData="C" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btnCE" mnemonicParsing="false" onAction="#operatorEventHandler" text="CE" userData="CE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="btnDBTest" mnemonicParsing="false" onAction="#connectToDB" text="DBTest" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+      <Button fx:id="btnDBTest" mnemonicParsing="false" onAction="#connectToDB" text="DBTest" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Label fx:id="lblID" text="ID" />
+      <TextField fx:id="txtID" GridPane.columnIndex="1" />
+      <Button fx:id="btnNext" mnemonicParsing="false" onAction="#next" text="Next" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Button fx:id="btnPrevious" mnemonicParsing="false" onAction="#previous" text="Previous" GridPane.rowIndex="4" />
    </children>
    <opaqueInsets>
       <Insets />

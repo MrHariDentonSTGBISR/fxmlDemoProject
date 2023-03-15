@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc946454-391d-4a56-835e-b03c2884ec36" name="Changes" comment="Added MySQL library and DB Connection">
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+    <list default="true" id="fc946454-391d-4a56-835e-b03c2884ec36" name="Changes" comment="Checked SDK is valid">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo4/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo4/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/demo4/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/demo4/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,7 @@
       <workItem from="1678176655155" duration="4594000" />
       <workItem from="1678181507470" duration="5858000" />
       <workItem from="1678273014627" duration="13751000" />
-      <workItem from="1678704549702" duration="1704000" />
+      <workItem from="1678704549702" duration="7107000" />
     </task>
     <task id="LOCAL-00001" summary="NumButtonsAdded">
       <created>1678109606420</created>
@@ -112,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678361398400</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Checked SDK is valid">
+      <created>1678866894584</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678866894584</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +130,7 @@
     <MESSAGE value="NumButtonsAdded" />
     <MESSAGE value="OperatorButtons Added" />
     <MESSAGE value="Added MySQL library and DB Connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added MySQL library and DB Connection" />
+    <MESSAGE value="Checked SDK is valid" />
+    <option name="LAST_COMMIT_MESSAGE" value="Checked SDK is valid" />
   </component>
 </project>
