@@ -23,6 +23,8 @@
       <TextField fx:id="txtID" GridPane.columnIndex="1" />
       <Button fx:id="btnNext" mnemonicParsing="false" onAction="#next" text="Next" GridPane.columnIndex="2" GridPane.rowIndex="4" />
       <Button fx:id="btnPrevious" mnemonicParsing="false" onAction="#previous" text="Previous" GridPane.rowIndex="4" />
+      <Label fx:id="lblFirstName" text="First Name:" GridPane.rowIndex="1" />
+      <TextField fx:id="txtFirstName"  GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
    <opaqueInsets>
       <Insets />

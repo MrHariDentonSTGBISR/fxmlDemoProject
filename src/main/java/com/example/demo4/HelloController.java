@@ -18,6 +18,7 @@ public class HelloController {
     static ResultSet rs;
 
     @FXML TextField txtID;
+    @FXML TextField txtFirstName;
 
 
 
@@ -32,6 +33,7 @@ public class HelloController {
             rs = stmt.executeQuery(QUERY);
             rs.next();
             txtID.setText(rs.getString("actor_id"));
+            txtFirstName.setText(rs.getString("first_name"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,6 +47,7 @@ public class HelloController {
         try{
             rs.next();
             txtID.setText(rs.getString("actor_id"));
+            txtFirstName.setText(rs.getString("first_name"));
             //System.out.println(rs.getString("actor_id") );
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,6 +60,7 @@ public class HelloController {
         try{
             rs.previous();
             txtID.setText(rs.getString("actor_id"));
+            txtFirstName.setText(rs.getString("first_name"));
             //System.out.println(rs.getString("actor_id") );
         } catch (Exception e) {
             e.printStackTrace();
