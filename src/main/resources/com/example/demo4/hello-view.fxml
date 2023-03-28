@@ -4,11 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo4.HelloController">
+<GridPane alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo4.HelloController">
   <columnConstraints>
       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="16.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="4.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -18,13 +19,17 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="btnDBTest" mnemonicParsing="false" onAction="#connectToDB" text="DBTest" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <Label fx:id="lblID" text="ID" />
       <TextField fx:id="txtID" GridPane.columnIndex="1" />
       <Button fx:id="btnNext" mnemonicParsing="false" onAction="#next" text="Next" GridPane.columnIndex="2" GridPane.rowIndex="4" />
       <Button fx:id="btnPrevious" mnemonicParsing="false" onAction="#previous" text="Previous" GridPane.rowIndex="4" />
       <Label fx:id="lblFirstName" text="First Name:" GridPane.rowIndex="1" />
-      <TextField fx:id="txtFirstName"  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="txtFirstName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+       <Label fx:id="lblLastName" text="Last Name:" GridPane.rowIndex="2" />
+       <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+       <Label fx:id="lblLastUpdated" text="Last Updated:" GridPane.rowIndex="3" />
+       <TextField fx:id="txtLastUpdate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#update" text="Edit" GridPane.columnIndex="2" GridPane.rowIndex="3" />
    </children>
    <opaqueInsets>
       <Insets />
