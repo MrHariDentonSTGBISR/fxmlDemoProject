@@ -13,7 +13,8 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="897989a8-fdc7-484f-b313-f3b9b81ccd1b">
-      <console name="calcDB" type="STANDARD" schema="mysql" session="Main"><![CDATA[SELECT * FROM sakila.actor]]></console>
+      <console name="calcDB" type="STANDARD" schema="mysql" session="Main"><![CDATA[SELECT * FROM sakila.actor
+WHERE actor_id  > 190;]]></console>
     </connection>
     <connection id="fb8dbafc-72fb-45dd-b702-66f8a659c585">
       <console name="testConn" type="STANDARD" schema="sakila" session="Main"><![CDATA[select
@@ -29,9 +30,7 @@ from
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="897989a8-fdc7-484f-b313-f3b9b81ccd1b" object-ref="schemas/sakila/tables/actor" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="897989a8-fdc7-484f-b313-f3b9b81ccd1b" dataset="sakila.actor" active-filter-id="EMPTY_FILTER" />

@@ -4,12 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo4.HelloController">
+<GridPane alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo4.HelloController">
   <columnConstraints>
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="16.0" prefWidth="100.0" />
-      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="4.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="18.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="7.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="41.0" prefWidth="100.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="29.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -30,8 +31,13 @@
        <Label fx:id="lblLastUpdated" text="Last Updated:" GridPane.rowIndex="3" />
        <TextField fx:id="txtLastUpdate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#update" text="Edit" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+       <Button fx:id="btnNew" mnemonicParsing="false" onAction="#insert" text="New" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+       <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#delete" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+       <Button fx:id="btnSetTableActor" mnemonicParsing="false" onAction="#setTableActor" text="See Actors" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+       <Button fx:id="btnSetTableFilm" mnemonicParsing="false" onAction="#setTableFilm" text="See Films" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+       <TableView fx:id="tableview" prefHeight="400.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2"  GridPane.rowSpan="2">
+        <columns>
+        </columns>
+      </TableView>
    </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
 </GridPane>
