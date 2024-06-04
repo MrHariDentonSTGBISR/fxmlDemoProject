@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -18,26 +17,29 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label fx:id="lblID" text="ID" />
-      <TextField fx:id="txtID" GridPane.columnIndex="1" />
-      <Button fx:id="btnNext" mnemonicParsing="false" onAction="#next" text="Next" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Button fx:id="btnPrevious" mnemonicParsing="false" onAction="#previous" text="Previous" GridPane.rowIndex="4" />
-      <Label fx:id="lblFirstName" text="First Name:" GridPane.rowIndex="1" />
-      <TextField fx:id="txtFirstName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-       <Label fx:id="lblLastName" text="Last Name:" GridPane.rowIndex="2" />
-       <TextField fx:id="txtLastName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-       <Label fx:id="lblLastUpdated" text="Last Updated:" GridPane.rowIndex="3" />
-       <TextField fx:id="txtLastUpdate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#update" text="Edit" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Label fx:id="lblID" text="City ID" />
+      <TextField fx:id="txtCityID" GridPane.columnIndex="1" />
+      <Button fx:id="btnNext" mnemonicParsing="false" onAction="#next" text="Next" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Button fx:id="btnPrevious" mnemonicParsing="false" onAction="#previous" text="Previous" GridPane.rowIndex="5" />
+      <Label fx:id="lblFirstName" text="City Name" GridPane.rowIndex="1" />
+      <TextField fx:id="txtCityName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+       <Label fx:id="lblLastName" text="Country" GridPane.rowIndex="2" />
+       <TextField fx:id="txtCountryID" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+       <Label fx:id="lblLastUpdated" text="Last Updated:" GridPane.rowIndex="4" />
+       <TextField fx:id="txtLastUpdate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#update" text="Edit" GridPane.columnIndex="2" GridPane.rowIndex="4" />
        <Button fx:id="btnNew" mnemonicParsing="false" onAction="#insert" text="New" GridPane.columnIndex="2" GridPane.rowIndex="2" />
        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#delete" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="1" />
        <Button fx:id="btnSetTableActor" mnemonicParsing="false" onAction="#setTableActor" text="See Actors" GridPane.columnIndex="3" GridPane.rowIndex="0" />
        <Button fx:id="btnSetTableFilm" mnemonicParsing="false" onAction="#setTableFilm" text="See Films" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-       <TableView fx:id="tableview" prefHeight="400.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2"  GridPane.rowSpan="2">
+       <TableView fx:id="tableview" prefHeight="400.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.rowSpan="2">
         <columns>
         </columns>
       </TableView>
+      <ChoiceBox prefWidth="150.0" GridPane.columnIndex="2" />
+      <ComboBox fx:id="cmbCountry" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
    </children>
 </GridPane>

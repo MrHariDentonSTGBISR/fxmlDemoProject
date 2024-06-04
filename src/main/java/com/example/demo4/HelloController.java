@@ -7,19 +7,14 @@ import java.time.LocalDateTime;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import java.util.Optional;
-import javafx.application.Application;
-import javafx.application.Platform;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 
 
@@ -29,7 +24,7 @@ public class HelloController {
     static String driverName = "com.mysql.cj.jdbc.Driver";
     static final String USER = "admin";
     static final String PASS = "admin";
-    static final String QUERY = "SELECT * FROM actor";
+    static final String QUERY = "SELECT * FROM city";
 
     static Connection conn = null;
 
@@ -39,28 +34,19 @@ public class HelloController {
 
     //TABLE VIEW AND DATA
     private static ObservableList<ObservableList<String>> data;
-    @FXML Button btnSetTableActor;
-    @FXML Button btnSetTableFilm;
 
     @FXML
     TableView tableview;
 
     @FXML
-    TextField txtID;
+    TextField txtCityID, txtCityName, txtCountryID, txtLastUpdate;
+
     @FXML
-    TextField txtFirstName;
+    Button btnEdit, btnNew, btnDelete, btnLast, btnSetTableActor , btnSetTableFilm;
+
     @FXML
-    TextField txtLastName;
-    @FXML
-    TextField txtLastUpdate;
-    @FXML
-    Button btnEdit;
-    @FXML
-    Button btnNew;
-    @FXML
-    Button btnDelete;
-    @FXML
-    Button btnLast;
+    ComboBox<DataItem> cmbCountry;
+
 
     @FXML
     public void initialize() {
@@ -75,6 +61,7 @@ public class HelloController {
             updateFieldsInView();
             setEditable(false);
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -82,9 +69,9 @@ public class HelloController {
     }
 
     private void setEditable(boolean editable) {
-        txtID.setEditable(editable);
-        txtFirstName.setEditable(editable);
-        txtLastName.setEditable(editable);
+        txtCityID.setEditable(editable);
+        txtCityName.setEditable(editable);
+        txtCountryID.setEditable(editable);
         txtLastUpdate.setEditable(editable);
     }
 
@@ -110,18 +97,13 @@ public class HelloController {
     protected void previous(ActionEvent event) {
         // write code later
         try {
-           if (! rs.previous()){rs.last();}
+           if (!rs.previous()){rs.last();}
         }
         catch (Exception e) {
             try{
-                System.out.println("2");
-                rs.first();
-                System.out.println("3");
                 rs.last();
-                System.out.println("4");
             }
             catch (Exception ex) {
-                System.out.println("5");
                 ex.printStackTrace();
             }
         }
@@ -132,12 +114,13 @@ public class HelloController {
 
     protected void updateFieldsInView() {
         try {
-            txtID.setText(rs.getString("actor_id"));
-            txtFirstName.setText(rs.getString("first_name"));
-            txtLastName.setText(rs.getString("last_name"));
+            txtCityID.setText(rs.getString("city_id"));
+            txtCityName.setText(rs.getString("city"));
+            txtCountryID.setText(rs.getString("country_id"));
             txtLastUpdate.setText(rs.getString("last_update"));
+            populateComboBox(cmbCountry,"SELECT country_id, country FROM country ORDER BY country",
+                    "country", "country_id", conn);
         } catch (Exception e) {
-            System.out.println("6");
             e.printStackTrace();
         }
     }
@@ -150,8 +133,8 @@ public class HelloController {
             btnEdit.setText("Save");
         } else {
             try {
-                rs.updateString("first_name", txtFirstName.getText());
-                rs.updateString("last_name", txtLastName.getText());
+                rs.updateString("city", txtCityName.getText());
+                rs.updateString("country_id", txtCountryID.getText());
                 rs.updateTimestamp("last_update", Timestamp.valueOf(txtLastUpdate.getText()));
                 rs.updateRow();
 
@@ -168,17 +151,17 @@ public class HelloController {
     public void insert() {
         if (!currentlyInserting) {
             setEditable(true);
-            txtID.setEditable(false);
-            txtID.clear();
-            txtFirstName.clear();
-            txtLastName.clear();
+            txtCityID.setEditable(false);
+            txtCityID.clear();
+            txtCityName.clear();
+            txtCountryID.clear();
             txtLastUpdate.clear();
             currentlyInserting = true;
             btnNew.setText("Save");
         } else { try {
                 rs.moveToInsertRow();
-                rs.updateString("first_name", txtFirstName.getText());
-                rs.updateString("last_name", txtLastName.getText());
+                rs.updateString("city", txtCityName.getText());
+                rs.updateString("country_id", txtCountryID.getText());
                 rs.updateTimestamp("last_update", Timestamp.valueOf(LocalDateTime.now()));
                 rs.insertRow();
                 setEditable(false);
@@ -201,7 +184,7 @@ public class HelloController {
             // ... user chose OK
             try {
                 //Delete the child references to this actor first
-                String delete_sql = "DELETE FROM film_actor WHERE actor_id="+txtID.getText();
+                String delete_sql = "DELETE FROM city WHERE city_id="+ txtCityID.getText();
                 Statement stmt = conn.createStatement();
                 stmt.executeUpdate(delete_sql);
                 //once the references to this actor are deleted we can delete the actor record
@@ -228,20 +211,20 @@ public class HelloController {
     }
 
     @FXML public void setTableFilm(){
-        String SQLFilm = "SELECT * FROM film LIMIT 10";
+        String SQLFilm = "SELECT * FROM film";
         creatTableViewStructure(SQLFilm);
         buildData(SQLFilm);
     }
     @FXML public void buildData(String SQL) {
         data.clear();
         try {
-            ResultSet rs = conn.createStatement().executeQuery(SQL);
-            while (rs.next()) {
+            ResultSet buildDataForTableRS = conn.createStatement().executeQuery(SQL);
+            while (buildDataForTableRS.next()) {
                 //Iterate Row
                 ObservableList<String> row = FXCollections.observableArrayList();
-                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                for (int i = 1; i <= buildDataForTableRS.getMetaData().getColumnCount(); i++) {
                     //Iterate Column
-                    row.add(rs.getString(i));
+                    row.add(buildDataForTableRS.getString(i));
                 }
                 System.out.println("Row [1] added " + row);
                 data.add(row);
@@ -258,11 +241,11 @@ public class HelloController {
         tableview.getColumns().clear();
         try {
             //ResultSet
-            rs = conn.createStatement().executeQuery(SQL);
-            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+            ResultSet TableViewStructureRS = conn.createStatement().executeQuery(SQL);
+            for (int i = 0; i < TableViewStructureRS.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
                 int j = i;
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                TableColumn col = new TableColumn(TableViewStructureRS.getMetaData().getColumnName(i + 1));
                 col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
                     public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
                         if (param.getValue().get(j)==null){ return new SimpleStringProperty("");}
@@ -277,5 +260,31 @@ public class HelloController {
             System.out.println("Error on Building Data");
         }
     }// end creatTableViewStructure
+
+    protected void populateComboBox(ComboBox<DataItem> comboBox, String query, String displayColumn, String idColumn, Connection connection) throws SQLException {
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            ObservableList<DataItem> options = FXCollections.observableArrayList();
+            DataItem selected = new DataItem(-1,"Nothing selected");
+            while (resultSet.next()) {
+                DataItem newItem = new DataItem(Integer.parseInt(resultSet.getString(idColumn)),resultSet.getString(displayColumn));
+                options.add(newItem);
+
+                if(Integer.parseInt(txtCountryID.getText()) == newItem.getId()) {
+                    selected = newItem;
+                }
+            }
+            comboBox.setItems(options);
+            comboBox.setValue(selected);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error on Building ComboBox");
+        }
+    }
+
+    protected int getSeelectedID(ComboBox<DataItem> comboBox){
+        return comboBox.getValue().getId();
+    }
 
 }
